@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        label{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            text-transform:capitalize;
+            font-weight: bold;
+            width:100px;
+        }
+        input{
+            margin-top:5px;
+            width:300px;
+            height:30px;
+            border-radius:5px;
+        }
+        .det{
+            margin-top:15px;
+        }
+        .details{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          button{
+            text-decoration:none;
+            width:250px;
+            background-color:cornflowerblue;
+            color:white;
+            height:30px;
+            border-radius:10px;
+            font-size:bold;
+
+          }
+          nav{
+            text-decoration:none;
+            display:flex;
+            justify-content: flex-start;
+          }
+          nav li{
+            text-decoration:none;
+          }
+          select{
+            text-decoration:none;
+            border-color:white;
+            width:100px;
+          }
+          p{
+            margin-left:20px;
+          }
+          a{
+            text-decoration:none;
+          }
+          #option{
+            margin-left:20px;
+          }
+    </style>
+    <title>Add Details</title>
+</head>
+<body>
+    <nav>
+        <div>
+        <img src="https://mma.prnewswire.com/media/1431933/Clever_Devices.jpg?p=facebook" width="110px">
+        </div>
+        <div>
+        <p>HOME</li>
+        </div>
+        <div>
+        <p>
+            <form action="{% url 'display-list' %}" method="post">
+                {% csrf_token %}
+                <p>
+                <select id="dropdown" name="selected_option" onchange="this.form.submit()">
+              <option value="database"><p id="option">Data base</p></option>
+              <option value="customer"><a href="{% url 'display-list' %}">Customer</a></option>
+              <option value="depots">Depots</option>
+              <option value="vehicletypes">Vehicle Types</option>
+              <option value="vehicles">Vehicles</option>
+              <option value="ivns">IVNs</option>
+              <option value="update-files">Update Files</option>
+              <option value="active">Active OEM builds</option>
+            </select>
+          </form>
+          </p>
+            
+
+        </li>
+        </div>
+        <div>
+        <p>Tools</li>
+        </div>
+        <div>
+        <p>Help links</li>
+        </div>
+
+    </nav>
+    {% block content %}
+    {% endblock %}
+    </body>
+    </html>

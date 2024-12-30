@@ -1,0 +1,97 @@
+
+{% extends 'nav.html' %}
+
+{% block content %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        section {
+            padding: 2rem;
+            margin: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            width:80%;
+       
+        }
+        li {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+        li:nth-child(1) {
+            background-color: #FFD700; /* Yellow */
+        }
+        li:nth-child(2) {
+            background-color: #FFA500; /* Orange */
+        }
+        li:nth-child(3) {
+            background-color: #FF0000; /* Red */
+        }
+        li:nth-child(4) {
+            background-color: #000000; /* Black */
+        }
+        li:nth-child(5) {
+            background-color: green /* Black */
+        }
+        li:nth-child(6) {
+            background-color: gray /* Black */
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #007BFF;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+
+<center>
+<section>
+    <h2><h1>SE-WEB: Systems Engineering - Web Enhanced Tools</h1></h2>
+    <ul>
+        <li>Log Grabber Tool</li>
+        <li>JIRA Ticket Creation Tool</li>
+        <li>JIRA Worklog Reporting Tool</li>
+        <li>BRS Field Ticket Generator Tool</li>
+        <li>NYCT Automated Reports</li>
+        <li>CleverWare Log Analyzer</li>
+    </ul>
+</section>
+</center>
+
+
+</body>
+</html>
+{% endblock %}

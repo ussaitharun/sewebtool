@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        label{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            text-transform:capitalize;
+            font-weight: bold;
+            width:100px;
+        }
+        input{
+            margin-top:5px;
+            width:300px;
+            height:30px;
+            border-radius:5px;
+        }
+        .det{
+            margin-top:15px;
+        }
+        .details{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          button{
+            text-decoration:none;
+            width:250px;
+            background-color:cornflowerblue;
+            color:white;
+            height:30px;
+            border-radius:10px;
+            font-size:bold;
+
+          }
+          nav{
+            text-decoration:none;
+            display:flex;
+            justify-content: flex-start;
+          }
+          nav li{
+            text-decoration:none;
+          }
+          select{
+            text-decoration:none;
+            border-color:white;
+            width:100px;
+          }
+          p{
+            margin-left:20px;
+          }
+          a{
+            text-decoration:none;
+          }
+          #option{
+            margin-left:20px;
+          }
+    </style>
+    <title>Add Details</title>
+</head>
+<body>
+    <nav>
+        <div>
+        <img src="https://mma.prnewswire.com/media/1431933/Clever_Devices.jpg?p=facebook" width="110px">
+        </div>
+        <div>
+        <p>HOME</li>
+        </div>
+        <div>
+        <p>
+            <form action="{% url 'display-list' %}" method="post">
+                {% csrf_token %}
+                <p>
+                <select id="dropdown" name="selected_option" onchange="this.form.submit()">
+              <option value="database"><p id="option">Data base</p></option>
+              <option value="customer"><a href="{% url 'display-list' %}">Customer</a></option>
+              <option value="depots">Depots</option>
+              <option value="vehicle-types">Vehicle Types</option>
+              <option value="vehicles">Vehicles</option>
+              <option value="ivns">IVNs</option>
+              <option value="update-files">Update Files</option>
+              <option value="active">Active OEM builds</option>
+            </select>
+          </form>
+          </p>
+            
+
+        </li>
+        </div>
+        <div>
+        <p>Tools</li>
+        </div>
+        <div>
+        <p>Help links</li>
+        </div>
+
+    </nav>
+    <div class="details">
+    <h1>Add Details</h1>
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+        <form method="POST">
+            {% csrf_token %}
+            <div class="det">
+                <label for="id_name">Name:</label><br/>
+                <div id="inputlen">{{ form.name }}</div>
+            </div>
+            <div class="det">
+                <label for="id_abbreviation">Abbreviation:</label><br/>
+                <div id="inputlen">{{ form.abbreviation }}</div>
+            </div>
+            <div class="det">
+                <label for="id_city">City:</label><br/>
+                <div id="inputlen">{{ form.city }}</div>
+            </div>
+            <div class="det"> 
+                <label for="id_state">State:</label><br/>
+                <div id="inputlen">{{ form.state }}</div>
+            </div>
+            <div class="det">
+                <label for="id_customer_account_number">Customer Account Number:</label><br/>
+                <div id="inputlen">{{ form.customer_account_number }}</div>
+            </div>
+            <br/>
+            <br/>
+           <center> <div id="submit"><button type="submit">Submit</button></div></center>
+        </form>
+    </div>
+
+</body>
+</html>

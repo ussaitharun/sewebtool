@@ -1,0 +1,99 @@
+<!-- {% extends 'nav.html' %}
+
+{% block content %} -->
+<html>
+<head>
+<style>
+
+
+    .login-container {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition-timing-function:ease;
+        transition-duration:0.2s;
+
+    }
+    .login-container:hover{
+        box-shadow:2px 5px 10px gray;
+        transition-duration:0.3s;
+    }
+
+    .login-container h1 {
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+        color: #333;
+        text-align: center;
+    }
+
+    .login-container label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"],
+    .login-container select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .login-container button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .login-container button:hover {
+        background-color: #0056b3;
+    }
+    nav img{
+        width:50%;
+
+
+    }
+</style>
+</head>
+<body>
+    <center>
+    <nav>
+        <img src="https://s3.amazonaws.com/resumator/customer_20190828204421_22KKY1GLHBV4WOVO/logos/20190905152909_Color_Logo_-_Large.jpg">
+    </nav>
+    </center>
+<div class="login-container">
+    <h1>Login</h1>
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="role">Login As</label>
+        <select id="role" name="role" required>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select>
+
+        <button type="submit">Login</button>
+    </form>
+</div>
+</body>
+</html>
+<!-- {% endblock %} -->

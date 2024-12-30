@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Details</title>
+    <style>
+        table {
+            width: 100%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: cornflowerblue;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #f9f9f9; /* Light gray for odd rows */
+        }
+
+        tr:nth-child(even) {
+            background-color: #e9f7f9; /* Light blue for even rows */
+        }
+
+        tr:hover {
+            background-color: lightgray; /* Light orange on hover */
+        }
+
+        .details {
+            position: absolute;
+            width: 80%;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .blue-link-btn {
+            margin-top: 25px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: center;
+            width: auto;
+            transition-timing-function: ease;
+            transition-duration: 0.3s;
+        }
+
+        .blue-link-btn:hover {
+            background-color: black;
+            color: white;
+            transition-duration: 0.2s;
+        }
+
+        .label {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        #vc-detail{
+            display:flex;
+            justify-content:flex-start;
+        }
+        h2{
+            margin-top:30px;
+            margin-left:20px;
+        }
+    </style>
+</head>
+<body>
+    {% extends 'nav.html' %}
+    {% block content %}
+    <div class="details">
+        <div class="table">
+            <div class="label">
+                <div id="vc-detail">
+                    <h1>Vehicles -type -- <h2>{{transit_agency.name}}</h2> </h1>
+                    <br/>
+                </div>
+                {% if role == "admin" %}
+                    <div>
+                        <a href    ="{% url 'add_vehicle' %}"  class="blue-link-btn">Add Customer</a>
+                    </div>
+                {% endif %}
+            </div>
+            <hr>
+            <table>
+                <tr>
+                    <th>Vehicle Type</th>
+                    <th>Customer</th>
+                    <th>Manufacturer</th>
+                    <th>Build Year</th>
+                </tr>
+                {% for vehicle in vehicles %}
+                    <tr>
+                        <td>{{ vehicle.vehicle_type }}</td>
+                        <td>{{ vehicle.customer }}</td>
+                        <td>{{ vehicle.build_manufacturer }}</td>
+                        <td>{{ vehicle.build_year }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

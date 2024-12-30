@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd and Even Row Styled Table</title>
+    <style>
+        table {
+            width:100%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color:cornflowerblue;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #f9f9f9; /* Light gray for odd rows */
+        }
+
+        tr:nth-child(even) {
+            background-color: #e9f7f9; /* Light blue for even rows */
+        }
+
+        tr:hover {
+            background-color:lightgray /* Light orange on hover */
+        }
+        .details{
+            position: absolute;
+            width:80%;
+            top:10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          .blue-link-btn {
+            padding: 10px 20px;
+            background-color: #007bff; 
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: center;
+            width: auto;
+        }
+
+        .blue-link-btn:hover {
+            background-color: #0056b3;  
+        }
+        .label{
+            display:flex;
+            justify-content:space-evenly;
+        }
+    </style>
+</head>
+<body>
+    {% extends 'nav.html' %}
+    {% block content %}
+<div class="details">
+    <div class="table">
+        <div class="label">
+            <div>
+    <h1>Customer</h1>
+    </div>
+    </div>
+    <hr>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Abbreviation</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Customer Account Number</th>
+        </tr>
+        {% for agency in transit_agencies %}
+            <tr>
+                <td>{{ agency.name }}</td>
+                <td>{{ agency.abbreviation }}</td>
+                <td>{{ agency.city }}</td>
+                <td>{{ agency.state }}</td>
+                <td>{{ agency.customer_account_number }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+    </div>
+    {% endblock %}
+</body>
+</html>
